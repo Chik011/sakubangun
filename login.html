@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masuk Akun — SakuBangun</title>
+  <meta name="description" content="Masuk ke akun SakuBangun untuk melanjutkan proyek belanja bahan bangunan Anda.">
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="assets.js"></script>
+  <script src="data.js" defer></script>
+  <script src="backend.js" defer></script>
+  <script src="common.js" defer></script>
+  <script src="js/login.js" defer></script>
+  <style>
+    .auth-page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      padding: 40px 16px;
+    }
+    .auth-card {
+      width: 100%;
+      max-width: 440px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px 30px;
+      box-shadow: 0 16px 40px rgba(23, 32, 51, 0.06);
+    }
+    .auth-card .brand {
+      margin-bottom: 20px;
+    }
+    .auth-card h1 {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+    .quick-access {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--border);
+    }
+    .quick-access h3 {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .quick-btns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER TOKO -->
+  <div id="store-header">
+    <div class="announcement">
+      <span>🚚 Gratis ongkir Jabodetabek min. Rp1.500.000 · Bisa pilih jadwal kirim</span>
+      <span>Demo desain · Belum melayani transaksi nyata</span>
+    </div>
+    <header class="main-header wrap">
+      <a class="brand" href="index.html"><b>SB</b><span>SakuBangun<small>Bangun Lebih Mudah.</small></span></a>
+      <form id="global-search" class="search">
+        <img data-asset="assets/home-194d5.svg" alt="">
+        <input id="query" aria-label="Cari produk" placeholder="Cari semen, cat, keramik, atau merek...">
+        <button type="submit" class="key">Cari</button>
+      </form>
+      <button id="account-button" class="icon-button"><img data-asset="assets/home-fd570.svg" alt=""> <span>Akun</span></button>
+      <a class="icon-button" href="keranjang.html" aria-label="Keranjang belanja">
+        <img data-asset="assets/home-dd4f4.svg" alt="">
+        <span>Keranjang</span>
+        <b id="cart-count">0</b>
+      </a>
+    </header>
+    <nav class="store-nav wrap" aria-label="Menu toko">
+      <a href="index.html">Beranda</a>
+      <a href="belanja.html">Belanja</a>
+      <a href="inspirasi.html">Inspirasi</a>
+      <a href="promo.html">Promo</a>
+      <a href="pesanan.html">Lacak Pesanan</a>
+      <img data-asset="assets/home-5734f.svg" alt="">
+      <button data-category="Semen & Beton">Semen</button>
+      <button data-category="Baja & Besi">Baja & Besi</button>
+      <button data-category="Cat & Finishing">Cat</button>
+      <button data-category="Keramik">Keramik</button>
+    </nav>
+  </div>
+
+  <!-- AUTH PAGE: LOGIN -->
+  <main class="auth-page">
+    <div class="auth-card">
+      <a class="brand" href="index.html"><b>SB</b><span>SakuBangun</span></a>
+      <h1>Selamat datang kembali.</h1>
+      <p>Masuk untuk melanjutkan proyek atau mengelola toko Anda.</p>
+
+      <form id="login-form" style="margin-top: 20px;">
+        <label>Username
+          <input id="username" required autocomplete="username" maxlength="30" placeholder="user / penjual / admin">
+        </label>
+        <label>Kata sandi
+          <input id="password" type="password" required autocomplete="current-password" maxlength="100" placeholder="Kata sandi demo (123)">
+        </label>
+        
+        <p id="auth-error" class="error" role="alert"></p>
+        
+        <button id="auth-submit" class="button full" type="submit">Masuk ke Akun</button>
+      </form>
+
+      <div style="text-align: center; margin-top: 18px;">
+        <a href="register.html" class="text-button">Belum punya akun? Daftar akun baru →</a>
+      </div>
+
+      <!-- AKSES LOGIN CEPAT 1-KLIK DEMO -->
+      <div class="quick-access">
+        <h3>⚡ Akses Login Cepat (1-Klik Demo)</h3>
+        <div class="quick-btns">
+          <button type="button" class="button pale small" data-quick-login="user">Pembeli</button>
+          <button type="button" class="button pale small" data-quick-login="penjual">Penjual</button>
+          <button type="button" class="button pale small" data-quick-login="admin">Admin</button>
+        </div>
+        <p class="note" style="margin-top: 10px;">Semua akun demo menggunakan password <b>123</b>.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="store-footer">
+    <div class="wrap">
+      <div class="footer-columns">
+        <div>
+          <a class="brand" href="index.html"><b>SB</b><span>SakuBangun<small>Bangun Lebih Mudah.</small></span></a>
+          <p>Toko bahan bangunan digital dengan harga transparan, jadwal kirim pasti, dan bantuan manusia sungguhan.</p>
+          <span class="pill">Melayani 48 kota · ilustrasi desain</span>
+        </div>
+        <div>
+          <strong>Belanja</strong>
+          <button data-category="Semen & Beton">Semen & Beton</button>
+          <button data-category="Baja & Besi">Baja & Besi</button>
+          <button data-category="Cat & Finishing">Cat & Finishing</button>
+          <button data-category="Sanitary">Sanitary</button>
+        </div>
+        <div>
+          <strong>Layanan</strong>
+          <button data-help="Cek ongkir">Cek ongkir</button>
+          <button data-help="Konsultasi proyek">Konsultasi proyek</button>
+          <button data-help="Retur & refund">Retur & refund</button>
+          <button data-help="Pusat bantuan">Pusat bantuan</button>
+        </div>
+        <div>
+          <strong>SakuBangun</strong>
+          <button data-help="Tentang kami">Tentang kami</button>
+          <button data-help="Karier">Karier</button>
+          <button data-help="Mitra pemasok">Mitra pemasok</button>
+          <button data-help="Kebijakan privasi">Kebijakan privasi</button>
+        </div>
+      </div>
+      <img class="footer-divider" data-asset="assets/home-9c44d.svg" alt="">
+      <div class="footer-base">
+        <span>© 2026 SakuBangun. Bangun Lebih Mudah.</span>
+        <span>Prototipe · Midtrans / QRIS belum terhubung</span>
+      </div>
+    </div>
+  </footer>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Menu ponsel">
+    <a href="index.html">Beranda</a>
+    <a href="belanja.html">Belanja</a>
+    <a href="pesanan.html">Pesanan</a>
+    <a href="profil.html">Akun</a>
+  </nav>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard Toko & Admin — SakuBangun</title>
+  <meta name="description" content="Panel pengelolaan produk, stok, pesanan, dan analitik toko SakuBangun.">
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="assets.js"></script>
+  <script src="data.js" defer></script>
+  <script src="backend.js" defer></script>
+  <script src="common.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
+</head>
+<body>
+  <div class="page dashboard">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <a class="brand" href="index.html">
+        <b>SB</b>
+        <span>SakuBangun<small>Bangun Lebih Mudah.</small></span>
+      </a>
+      <div class="warehouse">
+        <small id="dashboard-role">ADMIN / PENJUAL</small>
+        <strong>Gudang Mitra Ciputat</strong>
+      </div>
+      <nav id="dashboard-nav"></nav>
+      <div class="sidebar-help">
+        <strong>Butuh panduan?</strong>
+        <p>Pelajari cara mengelola katalog produk, stok, dan pemrosesan pesanan.</p>
+        <button class="text-button" data-help="Panduan pengelolaan toko">Buka panduan →</button>
+      </div>
+      <a href="index.html" class="sidebar-back">← Lihat toko pembeli</a>
+      <button class="sidebar-back" data-action="logout">Keluar dari akun</button>
+    </aside>
+
+    <!-- MAIN DASHBOARD -->
+    <div class="dashboard-main">
+      <header class="dashboard-header">
+        <div>
+          <h2 id="dashboard-title">Ringkasan Toko</h2>
+          <small>Data sesi demo prototipe · Tersimpan di peramban</small>
+        </div>
+        <div class="actions">
+          <button class="button white" id="dashboard-export">Ekspor CSV</button>
+          <img class="avatar small" data-asset="assets/admin-244fe.png" alt="Avatar pengelola">
+        </div>
+      </header>
+
+      <div id="dashboard-content" class="dashboard-content">
+        <p>Memuat dashboard...</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <!-- DIALOG FORM PRODUK -->
+  <dialog id="product-dialog" aria-labelledby="edit-product-title">
+    <button class="close" data-close aria-label="Tutup">×</button>
+    <h2 id="edit-product-title">Tambah Produk</h2>
+    <form id="product-form" class="form-grid">
+      <input id="edit-id" type="hidden">
+      <label class="span-two">Nama produk
+        <input id="edit-name" required maxlength="120" placeholder="Misal: Semen Gresik 40kg">
+      </label>
+      <label>Kategori
+        <select id="edit-category" required></select>
+      </label>
+      <label>Merek
+        <input id="edit-brand" maxlength="40" placeholder="Semen Gresik">
+      </label>
+      <label>Harga jual (Rp)
+        <input id="edit-price" type="number" min="1" step="1" required placeholder="68000">
+      </label>
+      <label>Satuan
+        <input id="edit-unit" placeholder="sak / dus / batang / kg" required maxlength="20">
+      </label>
+      <label>Jumlah stok
+        <input id="edit-stock" type="number" min="0" step="1" required placeholder="50">
+      </label>
+      <label class="span-two">Foto produk
+        <input id="edit-photo" type="file" accept="image/png,image/jpeg,image/webp">
+      </label>
+      <img id="edit-preview" class="upload-preview" alt="Pratinjau produk" hidden>
+      <p class="note span-two">Format JPG, PNG, atau WebP, maksimal 5 MB.</p>
+      <p id="product-error" class="error span-two" role="alert"></p>
+      <button class="button span-two" type="submit">Simpan Produk</button>
+    </form>
+  </dialog>
+
+  <!-- DIALOG BUAT PROMO -->
+  <dialog id="promo-dialog" aria-labelledby="new-promo-title">
+    <button class="close" data-close aria-label="Tutup">×</button>
+    <h2 id="new-promo-title">Buat Promo Baru</h2>
+    <form id="promo-form">
+      <label>Kode voucher (huruf & angka)
+        <input name="kode" required pattern="[A-Za-z0-9]{3,24}" placeholder="DISCOUNT20">
+      </label>
+      <label>Besar diskon (%)
+        <input name="persen" type="number" min="1" max="100" required placeholder="10">
+      </label>
+      <label>Maksimum diskon (Rp)
+        <input name="maksimum" type="number" min="1" required placeholder="100000">
+      </label>
+      <label>Minimal belanja (Rp)
+        <input name="minimum" type="number" min="0" value="0" required placeholder="500000">
+      </label>
+      <p id="promo-error" class="error" role="alert"></p>
+      <button class="button" type="submit">Simpan Promo</button>
+    </form>
+  </dialog>
+
+  <!-- DIALOG INFO -->
+  <dialog id="info-dialog" aria-labelledby="info-title">
+    <button class="close" data-close aria-label="Tutup">×</button>
+    <h2 id="info-title"></h2>
+    <div id="info-body"></div>
+  </dialog>
+
+  <!-- DIALOG KONFIRMASI -->
+  <dialog id="confirm-dialog" aria-labelledby="confirm-title">
+    <h2 id="confirm-title">Konfirmasi Perubahan</h2>
+    <p id="confirm-text"></p>
+    <div class="actions">
+      <button class="button white" data-close>Batal</button>
+      <button id="confirm-yes" class="button">Lanjutkan</button>
+    </div>
+  </dialog>
+</body>
+</html>

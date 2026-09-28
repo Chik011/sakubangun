@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SakuBangun — Bangun Lebih Mudah</title>
+  <meta name="description" content="Prototipe marketplace bahan bangunan SakuBangun berdasarkan desain gardaTech.">
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="assets.js"></script>
+  <script src="data.js" defer></script>
+  <script src="backend.js" defer></script>
+  <script src="common.js" defer></script>
+  <script src="js/beranda.js" defer></script>
+</head>
+<body>
+  <!-- HEADER TOKO -->
+  <div id="store-header">
+    <div class="announcement">
+      <span>🚚 Gratis ongkir Jabodetabek min. Rp1.500.000 · Bisa pilih jadwal kirim</span>
+      <span>Demo desain · Belum melayani transaksi nyata</span>
+    </div>
+    <header class="main-header wrap">
+      <a class="brand" href="index.html"><b>SB</b><span>SakuBangun<small>Bangun Lebih Mudah.</small></span></a>
+      <form id="global-search" class="search">
+        <img data-asset="assets/home-194d5.svg" alt="">
+        <input id="query" aria-label="Cari produk" placeholder="Cari semen, cat, keramik, atau merek...">
+        <button type="submit" class="key">Cari</button>
+      </form>
+      <button id="account-button" class="icon-button"><img data-asset="assets/home-fd570.svg" alt=""> <span>Akun</span></button>
+      <a class="icon-button" href="keranjang.html" aria-label="Keranjang belanja">
+        <img data-asset="assets/home-dd4f4.svg" alt="">
+        <span>Keranjang</span>
+        <b id="cart-count">0</b>
+      </a>
+    </header>
+    <nav class="store-nav wrap" aria-label="Menu toko">
+      <a href="index.html" class="active">Beranda</a>
+      <a href="belanja.html">Belanja</a>
+      <a href="inspirasi.html">Inspirasi</a>
+      <a href="promo.html">Promo</a>
+      <a href="pesanan.html">Lacak Pesanan</a>
+      <img data-asset="assets/home-5734f.svg" alt="">
+      <button data-category="Semen & Beton">Semen</button>
+      <button data-category="Baja & Besi">Baja & Besi</button>
+      <button data-category="Cat & Finishing">Cat</button>
+      <button data-category="Keramik">Keramik</button>
+    </nav>
+  </div>
+
+  <!-- BERANDA -->
+  <main id="beranda" class="page wrap home">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="pill">✨ Harga jujur, proyek lancar</span>
+        <h1>Bahan bangunan datang tepat, tanpa drama.</h1>
+        <p>Belanja kebutuhan renovasi dari merek tepercaya. Harga transparan, stok nyata, dan jadwal kirim yang bisa kamu pilih.</p>
+        <div class="actions">
+          <a href="belanja.html" class="button"><img data-asset="assets/home-66839.svg" alt="">Mulai belanja</a>
+          <button class="button white" data-help="Konsultasi proyek"><img data-asset="assets/home-e257e.svg" alt="">Konsultasi gratis</button>
+        </div>
+        <p class="note">Angka dan klaim layanan berikut merupakan ilustrasi desain.</p>
+        <div class="proof">
+          <span>✓ 12.000+ proyek terbantu*</span>
+          <span>✓ Rating 4,8/5*</span>
+        </div>
+        <img class="hero-bubble" data-asset="assets/home-aaa9a.svg" alt="">
+      </div>
+      <div class="hero-media">
+        <img class="hero-image" data-asset="assets/home-52ae7.png" alt="Pemilik rumah berdiskusi dengan ahli renovasi">
+        <div class="delivery-sticker">
+          <span><img data-asset="assets/home-35129.svg" alt=""></span>
+          <div>
+            <strong>Pilih waktu kirim</strong>
+            <small>Besok · 09.00–12.00</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">SEMUA KEBUTUHAN PROYEK</span>
+          <h2>Kategori populer</h2>
+        </div>
+        <a href="belanja.html">Lihat semua kategori →</a>
+      </div>
+      <div id="categories" class="categories"></div>
+      <p class="note">*Jumlah produk pada kategori merupakan ilustrasi desain. Katalog demo menyediakan 8 produk.</p>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">PALING SERING DIBELI</span>
+          <h2>Pilihan buat proyekmu</h2>
+        </div>
+        <a href="belanja.html">Lihat semua produk →</a>
+      </div>
+      <div id="home-products" class="product-grid five"></div>
+    </section>
+
+    <section>
+      <h3>Lebih tenang dari klik sampai tiba</h3>
+      <div class="benefits">
+        <article><span class="soft green"><img data-asset="assets/home-2cf69.svg" alt=""></span><div><strong>Produk terverifikasi</strong><small>Spesifikasi, SNI, dan stok diperiksa tim kami.</small></div></article>
+        <article><span class="soft blue"><img data-asset="assets/home-fdac9.svg" alt=""></span><div><strong>Jadwal kirim pasti</strong><small>Pilih slot. Dapatkan ETA dan pembaruan.</small></div></article>
+        <article><span class="soft peach"><img data-asset="assets/home-9ff9a.svg" alt=""></span><div><strong>Retur tanpa ribet</strong><small>Ajukan dengan bukti foto.</small></div></article>
+        <article><span class="soft lilac"><img data-asset="assets/home-ebf7a.svg" alt=""></span><div><strong>Ada ahli yang bantu</strong><small>Konsultasi kebutuhan material.</small></div></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">IDE YANG BISA DIWUJUDKAN</span>
+          <h2>Inspirasi proyek minggu ini</h2>
+        </div>
+        <a href="inspirasi.html">Jelajahi inspirasi →</a>
+      </div>
+      <div id="home-inspiration" class="inspiration-grid"></div>
+    </section>
+
+    <section class="promo-banner">
+      <div>
+        <span class="pill coral">PROMO AKHIR BULAN</span>
+        <h2>Potongan hingga Rp250.000</h2>
+        <p>Pakai kode <strong>BANGUNHEMAT</strong> untuk material pilihan.</p>
+      </div>
+      <a class="button" href="promo.html"><img data-asset="assets/home-55298.svg" alt="">Ambil promonya</a>
+      <img class="promo-image" data-asset="assets/home-e32c9.png" alt="Ilustrasi perlengkapan renovasi">
+    </section>
+
+    <section>
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">CERITA PELANGGAN</span>
+          <h2>Proyek jadi lebih ringan</h2>
+        </div>
+        <small>Testimoni contoh dari desain</small>
+      </div>
+      <div class="testimonials">
+        <article class="card"><span class="stars">★★★★★</span><p>“Renovasi rumah pertama terasa jauh lebih terarah. Ongkir dan jadwalnya jelas sejak awal.”</p><strong>Dina Puspita</strong><small>Renovasi rumah · Depok</small></article>
+        <article class="card"><span class="stars">★★★★★</span><p>“Bisa cek stok besi dan pesan per batang. Adminnya cepat bantu hitung kebutuhan.”</p><strong>Bagus Santoso</strong><small>Kontraktor · Bekasi</small></article>
+        <article class="card"><span class="stars">★★★★★</span><p>“Keramik datang utuh dan kurir kirim foto saat bongkar. Detail kecil yang bikin tenang.”</p><strong>Laras Widya</strong><small>Pemilik kos · Bandung</small></article>
+      </div>
+    </section>
+
+    <section class="coverage-newsletter">
+      <div class="coverage">
+        <div>
+          <span class="pill">48 KOTA</span>
+          <h2>Cek apakah kami sudah sampai ke kotamu.</h2>
+          <form id="coverage-form" class="inline-form">
+            <input id="postcode" aria-label="Kode pos" placeholder="Masukkan kode pos" required pattern="[0-9]{5}" maxlength="5">
+            <button class="button">Cek</button>
+          </form>
+          <small id="coverage-result" role="status">Populer: Jakarta · Tangerang · Bandung · Surabaya</small>
+        </div>
+        <img data-asset="assets/home-e5ae0.png" alt="Ilustrasi cakupan pengiriman dari desain">
+      </div>
+      <div class="newsletter">
+        <img data-asset="assets/home-cef59.svg" alt="">
+        <h2>Tips proyek, bukan spam.</h2>
+        <p>Dapatkan panduan belanja dan promo yang relevan dua kali sebulan.</p>
+        <form id="newsletter-form" class="inline-form">
+          <input type="email" required aria-label="Email newsletter" placeholder="Email kamu">
+          <button class="button">Daftar</button>
+        </form>
+        <small>Form contoh; email tidak dikirim ke layanan mana pun.</small>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="store-footer">
+    <div class="wrap">
+      <div class="footer-columns">
+        <div>
+          <a class="brand" href="index.html"><b>SB</b><span>SakuBangun<small>Bangun Lebih Mudah.</small></span></a>
+          <p>Toko bahan bangunan digital dengan harga transparan, jadwal kirim pasti, dan bantuan manusia sungguhan.</p>
+          <span class="pill">Melayani 48 kota · ilustrasi desain</span>
+        </div>
+        <div>
+          <strong>Belanja</strong>
+          <button data-category="Semen & Beton">Semen & Beton</button>
+          <button data-category="Baja & Besi">Baja & Besi</button>
+          <button data-category="Cat & Finishing">Cat & Finishing</button>
+          <button data-category="Sanitary">Sanitary</button>
+        </div>
+        <div>
+          <strong>Layanan</strong>
+          <button data-help="Cek ongkir">Cek ongkir</button>
+          <button data-help="Konsultasi proyek">Konsultasi proyek</button>
+          <button data-help="Retur & refund">Retur & refund</button>
+          <button data-help="Pusat bantuan">Pusat bantuan</button>
+        </div>
+        <div>
+          <strong>SakuBangun</strong>
+          <button data-help="Tentang kami">Tentang kami</button>
+          <button data-help="Karier">Karier</button>
+          <button data-help="Mitra pemasok">Mitra pemasok</button>
+          <button data-help="Kebijakan privasi">Kebijakan privasi</button>
+        </div>
+      </div>
+      <img class="footer-divider" data-asset="assets/home-9c44d.svg" alt="">
+      <div class="footer-base">
+        <span>© 2026 SakuBangun. Bangun Lebih Mudah.</span>
+        <span>Prototipe · Midtrans / QRIS belum terhubung</span>
+      </div>
+    </div>
+  </footer>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Menu ponsel">
+    <a href="index.html" class="active">Beranda</a>
+    <a href="belanja.html">Belanja</a>
+    <a href="pesanan.html">Pesanan</a>
+    <a href="profil.html">Akun</a>
+  </nav>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>
